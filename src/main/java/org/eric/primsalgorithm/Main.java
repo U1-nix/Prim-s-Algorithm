@@ -19,11 +19,12 @@ public class Main {
         }
         treeLength = Math.sqrt(treeLength);
 
-        System.out.println(treeLength);
+        System.out.println("Length of minimal spanning tree is " + treeLength);
     }
 
     private static void initializeMainTreeApexes(List<TreeApex> apexes) {
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter number of tree apexes: ");
         int numberOfMainApexes = scanner.nextInt();
         for (int i = 0; i < numberOfMainApexes; i++) {
 
@@ -38,9 +39,11 @@ public class Main {
 
             List<Double> coordinates = new ArrayList<>();
             // userInput - coordinate in String format
+            System.out.print("x" + i + ": ");
             String userInput = scanner.next();
             double coordinate = Double.parseDouble(userInput);
             coordinates.add(coordinate);
+            System.out.print("y" + i + ": ");
             userInput = scanner.next();
             coordinate = Double.parseDouble(userInput);
             coordinates.add(coordinate);
