@@ -11,21 +11,21 @@ public class Main {
 
         Prim.createMinimumSpanningTree(treeApexes);
 
-        double sum = 0;
+        double treeLength = 0;
         for (TreeApex e : treeApexes) {
             if (e.getPreviousApexId() != -2) {
-                sum += e.getDistanceToParent();
+                treeLength += e.getDistanceToParent();
             }
         }
+        treeLength = Math.sqrt(treeLength);
 
-        System.out.println(Math.sqrt(sum));
+        System.out.println(treeLength);
     }
 
     private static void initializeMainTreeApexes(List<TreeApex> apexes) {
         Scanner scanner = new Scanner(System.in);
         int numberOfMainApexes = scanner.nextInt();
         for (int i = 0; i < numberOfMainApexes; i++) {
-            //TreeApex treeApex = new TreeApex();
 
             int previousApexId;
             // -1 means no next tree apex
@@ -35,6 +35,7 @@ public class Main {
             } else {
                 previousApexId = -1;
             }
+
             List<Double> coordinates = new ArrayList<>();
             // userInput - coordinate in String format
             String userInput = scanner.next();
@@ -43,6 +44,7 @@ public class Main {
             userInput = scanner.next();
             coordinate = Double.parseDouble(userInput);
             coordinates.add(coordinate);
+
             TreeApex treeApex = new TreeApex(i, coordinates, previousApexId);
             apexes.add(treeApex);
         }
