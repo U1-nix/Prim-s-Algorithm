@@ -67,7 +67,7 @@ public class Prim {
     }
 
     // TODO: find out about classes inside classes
-    static class Distance {
+    static private class Distance {
         double distanceToParent;
         int startingApexId;
         int endingApexId;
