@@ -25,16 +25,16 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int numberOfMainApexes = scanner.nextInt();
         for (int i = 0; i < numberOfMainApexes; i++) {
-            TreeApex treeApex = new TreeApex();
-            treeApex.setId(i);
+            //TreeApex treeApex = new TreeApex();
+
+            int previousApexId;
             // -1 means no next tree apex
             if (i == 0) {
                 // -2 means first tree apex
-                treeApex.setPreviousApexId(-2);
+                previousApexId = -2;
             } else {
-                treeApex.setPreviousApexId(-1);
+                previousApexId = -1;
             }
-            treeApex.setDistanceToParent(Double.MAX_VALUE);
             List<Double> coordinates = new ArrayList<>();
             // userInput - coordinate in String format
             String userInput = scanner.next();
@@ -43,7 +43,7 @@ public class Main {
             userInput = scanner.next();
             coordinate = Double.parseDouble(userInput);
             coordinates.add(coordinate);
-            treeApex.setCoordinates(coordinates);
+            TreeApex treeApex = new TreeApex(i, coordinates, previousApexId);
             apexes.add(treeApex);
         }
     }

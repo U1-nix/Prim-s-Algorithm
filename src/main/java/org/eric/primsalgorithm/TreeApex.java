@@ -3,25 +3,24 @@ package org.eric.primsalgorithm;
 import java.util.List;
 
 public class TreeApex {
-    private int id;
-    private List<Double> coordinates;
+    private final int id;
+    private final List<Double> coordinates;
     private int previousApexId;
     private double distanceToParent;
+
+    public TreeApex(int id, List<Double> coordinates, int previousApexId) {
+        this.id = id;
+        this.coordinates = coordinates;
+        this.previousApexId = previousApexId;
+        distanceToParent = Double.MAX_VALUE;
+    }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public List<Double> getCoordinates() {
         return coordinates;
-    }
-
-    public void setCoordinates(List<Double> coordinates) {
-        this.coordinates = coordinates;
     }
 
     public int getPreviousApexId() {
