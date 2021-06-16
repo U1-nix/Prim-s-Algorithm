@@ -10,14 +10,7 @@ public class Main {
         initializeMainTreeApexes(treeApexes);
 
         Prim.createMinimumSpanningTree(treeApexes);
-
-        double treeLength = 0;
-        for (TreeApex e : treeApexes) {
-            if (e.getPreviousApexId() != -2) {
-                treeLength += e.getDistanceToParent();
-            }
-        }
-        treeLength = Math.sqrt(treeLength);
+        double treeLength = Math.round(calculateTreeLength(treeApexes) * 100.0) / 100.0;
 
         System.out.println("Length of minimal spanning tree is " + treeLength);
     }
@@ -51,5 +44,15 @@ public class Main {
             TreeApex treeApex = new TreeApex(i, coordinates, previousApexId);
             apexes.add(treeApex);
         }
+    }
+
+    public static double calculateTreeLength(List<TreeApex> treeApexes) {
+        double treeLength = 0;
+        for (TreeApex e : treeApexes) {
+            if (e.getPreviousApexId() != -2) {
+                treeLength += e.getDistanceToParent();
+            }
+        }
+        return Math.sqrt(treeLength);
     }
 }
